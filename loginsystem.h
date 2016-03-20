@@ -28,6 +28,16 @@ private slots:
 
     void on_regButton_clicked();
 
+    void on_backButton_2_clicked();
+
+    void on_editButton_clicked();
+
+    void on_delButton_clicked();
+
+    void on_editedButton_clicked();
+
+    void on_winStack_currentChanged(int arg1);
+
 private:
     Ui::LoginSystem *ui;
     QString username;
