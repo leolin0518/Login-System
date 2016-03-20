@@ -4,11 +4,11 @@ This is actually my first Qt 5 project which I have built with SQLite database.
 I was basically cloning a PHP/MySQL authentication system I wrote earlier.
 
 This app currently has the following features:
-* Registration/Login
-* Profile System
-* Edit Profile/Password
-* Delete Own Account
-* Basic GUI
+- Registration/Login
+- Profile System
+- Edit Profile/Password
+- Delete Own Account
+- Basic GUI
 
 ## **Screenshots** ##
 
