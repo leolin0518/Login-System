@@ -2,6 +2,7 @@
 #define LOGINSYSTEM_H
 
 #include <QMainWindow>
+#include <QCoreApplication>
 
 namespace Ui {
 class LoginSystem;
@@ -16,6 +17,8 @@ public:
     ~LoginSystem();
     bool Login(QString u, QString p);
     bool loggedIn;
+    QString picName;
+    QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
 
 private slots:
     void on_loginButton_clicked();
@@ -37,6 +40,10 @@ private slots:
     void on_editedButton_clicked();
 
     void on_winStack_currentChanged(int arg1);
+
+    void on_uplButton_clicked();
+
+    void on_uplButton_2_clicked();
 
 private:
     Ui::LoginSystem *ui;

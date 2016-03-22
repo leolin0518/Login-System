@@ -110,6 +110,10 @@
   <property name="windowTitle">
    <string>Login System 1.0</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="elements.qrc">
+    <normaloff>:/icon.ico</normaloff>:/icon.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -157,7 +161,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="Login">
       <widget class="QFrame" name="frame_2">
@@ -181,9 +185,9 @@
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>270</x>
-          <y>40</y>
-          <width>201</width>
+          <x>290</x>
+          <y>22</y>
+          <width>175</width>
           <height>41</height>
          </rect>
         </property>
@@ -197,7 +201,7 @@
          <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
-font-size: 40px;
+font-size: 35px;
 font-family: 'Droid Sans';</string>
         </property>
         <property name="text">
@@ -208,7 +212,7 @@ font-family: 'Droid Sans';</string>
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>190</y>
+          <y>248</y>
           <width>201</width>
           <height>41</height>
          </rect>
@@ -417,7 +421,7 @@ color: #fefefe;</string>
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>250</y>
+          <y>300</y>
           <width>201</width>
           <height>41</height>
          </rect>
@@ -632,7 +636,7 @@ color: #fefefe;</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>310</y>
+          <y>354</y>
           <width>80</width>
           <height>21</height>
          </rect>
@@ -651,7 +655,7 @@ Color: #fefefe;</string>
         <property name="geometry">
          <rect>
           <x>160</x>
-          <y>310</y>
+          <y>354</y>
           <width>80</width>
           <height>21</height>
          </rect>
@@ -670,13 +674,30 @@ Color: #fefefe;</string>
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>150</y>
-          <width>181</width>
+          <y>222</y>
+          <width>267</width>
           <height>16</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>88</x>
+          <y>80</y>
+          <width>128</width>
+          <height>128</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 64px;
+background-image: url(:/user.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -706,9 +727,9 @@ Color: #fefefe;</string>
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>30</y>
-          <width>241</width>
+          <x>258</x>
+          <y>24</y>
+          <width>223</width>
           <height>41</height>
          </rect>
         </property>
@@ -722,7 +743,7 @@ Color: #fefefe;</string>
          <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
-font-size: 40px;
+font-size: 35px;
 font-family: 'Droid Sans';</string>
         </property>
         <property name="text">
@@ -2067,6 +2088,41 @@ Color: #fefefe;</string>
          <string>Please fill the form correctly.</string>
         </property>
        </widget>
+       <widget class="QLabel" name="rpLabel">
+        <property name="geometry">
+         <rect>
+          <x>296</x>
+          <y>148</y>
+          <width>128</width>
+          <height>128</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>&lt;img src=&quot;:user.png&quot; /&gt;</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="uplButton">
+        <property name="geometry">
+         <rect>
+          <x>278</x>
+          <y>294</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #339;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>UPLOAD PICTURE</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="page">
@@ -2091,9 +2147,9 @@ Color: #fefefe;</string>
        <widget class="QLabel" name="loggedUserHeader">
         <property name="geometry">
          <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>271</width>
+          <x>248</x>
+          <y>16</y>
+          <width>245</width>
           <height>41</height>
          </rect>
         </property>
@@ -2107,7 +2163,7 @@ Color: #fefefe;</string>
          <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
-font-size: 40px;
+font-size: 35px;
 font-family: 'Droid Sans';</string>
         </property>
         <property name="text">
@@ -2136,8 +2192,8 @@ Color: #fefefe;</string>
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>130</y>
+          <x>54</x>
+          <y>248</y>
           <width>47</width>
           <height>13</height>
          </rect>
@@ -2153,8 +2209,8 @@ font-weight: bold;</string>
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>160</y>
+          <x>54</x>
+          <y>278</y>
           <width>47</width>
           <height>13</height>
          </rect>
@@ -2170,8 +2226,8 @@ font-weight: bold;</string>
        <widget class="QLabel" name="nameLabel">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>130</y>
+          <x>124</x>
+          <y>248</y>
           <width>241</width>
           <height>16</height>
          </rect>
@@ -2186,8 +2242,8 @@ font-weight: bold;</string>
        <widget class="QLabel" name="rankLabel">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>160</y>
+          <x>124</x>
+          <y>278</y>
           <width>201</width>
           <height>16</height>
          </rect>
@@ -2240,8 +2296,8 @@ Color: #101010;</string>
        <widget class="QLabel" name="label_6">
         <property name="geometry">
          <rect>
-          <x>34</x>
-          <y>188</y>
+          <x>48</x>
+          <y>306</y>
           <width>47</width>
           <height>13</height>
          </rect>
@@ -2257,8 +2313,8 @@ font-weight: bold;</string>
        <widget class="QLabel" name="emailLabel">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>188</y>
+          <x>124</x>
+          <y>306</y>
           <width>201</width>
           <height>16</height>
          </rect>
@@ -2270,6 +2326,52 @@ font-weight: bold;</string>
          <string/>
         </property>
        </widget>
+       <widget class="QFrame" name="frame_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>92</y>
+          <width>128</width>
+          <height>128</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="loggedPic">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>128</width>
+           <height>128</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>&lt;img src=&quot;:user.png&quot; /&gt;</string>
+         </property>
+        </widget>
+       </widget>
+       <zorder>frame_6</zorder>
+       <zorder>loggedUserHeader</zorder>
+       <zorder>logoutButton</zorder>
+       <zorder>label_3</zorder>
+       <zorder>label_4</zorder>
+       <zorder>nameLabel</zorder>
+       <zorder>rankLabel</zorder>
+       <zorder>editButton</zorder>
+       <zorder>delButton</zorder>
+       <zorder>label_6</zorder>
+       <zorder>emailLabel</zorder>
       </widget>
      </widget>
      <widget class="QWidget" name="page_3">
@@ -2294,9 +2396,9 @@ font-weight: bold;</string>
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>206</x>
-          <y>30</y>
-          <width>299</width>
+          <x>238</x>
+          <y>20</y>
+          <width>273</width>
           <height>41</height>
          </rect>
         </property>
@@ -2310,7 +2412,7 @@ font-weight: bold;</string>
          <string notr="true">text-align: center;
 color: #393;
 margin: 0 auto;
-font-size: 40px;
+font-size: 35px;
 font-family: 'Droid Sans';</string>
         </property>
         <property name="text">
@@ -3652,7 +3754,42 @@ Color: #fefefe;</string>
          <string notr="true">color: #fefefe;</string>
         </property>
         <property name="text">
-         <string>Edit your details below.</string>
+         <string>Edit your details below. (avatar may not change until app relaunch)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="uplButton_2">
+        <property name="geometry">
+         <rect>
+          <x>274</x>
+          <y>292</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #339;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>CHANGE PICTURE</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="rpLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>292</x>
+          <y>146</y>
+          <width>128</width>
+          <height>128</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>&lt;img src=&quot;:user.png&quot; /&gt;</string>
         </property>
        </widget>
        <zorder>label_5</zorder>
@@ -3665,6 +3802,8 @@ Color: #fefefe;</string>
        <zorder>backButton_2</zorder>
        <zorder>regLabel_2</zorder>
        <zorder>editedButton</zorder>
+       <zorder>uplButton_2</zorder>
+       <zorder>rpLabel_2</zorder>
       </widget>
      </widget>
     </widget>
@@ -3672,6 +3811,8 @@ Color: #fefefe;</string>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="elements.qrc"/>
+ </resources>
  <connections/>
 </ui>

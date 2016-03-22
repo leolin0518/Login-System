@@ -2,6 +2,7 @@
 #include "ui_loginsystem.h"
 #include "qdb.h"
 #include <QSqlRecord>
+#include <QFileDialog>
 
 QDBLite::DB db;
 
@@ -10,7 +11,7 @@ LoginSystem::LoginSystem(QWidget *parent) :
     ui(new Ui::LoginSystem)
 {
     ui->setupUi(this);
-    db.dbstate = db.Connect("../LogSys/db.s3db");
+    db.dbstate = db.Connect(QCoreApplication::applicationDirPath()+"/../../LogSys/db.s3db");
     ui->winStack->setCurrentIndex(0);
 
     ui->passwordBox->setEchoMode(QLineEdit::Password);
@@ -155,6 +156,19 @@ void LoginSystem::on_completeRegButton_clicked()
     }
     else
     {
+        if (this->picName != "")
+        {
+            QString to = this->picDir+"/"+ui->uBox->text();
+
+            if (QFile::exists(to))
+            {
+                QFile::remove(to);
+            }
+
+            QFile::copy(this->picName, to);
+            this->picName = "";
+        }
+
         ui->regLabel->setText("");
         QSqlQuery iQuery(db.db);
         iQuery.prepare("INSERT INTO sys_users(username, passwd, fname, mname, lname, email)"\
@@ -168,6 +182,13 @@ void LoginSystem::on_completeRegButton_clicked()
 
         if(iQuery.exec())
         {
+            ui->uBox->setText("");
+            ui->pBox->setText("");
+            ui->eBox->setText("");
+            ui->fBox->setText("");
+            ui->mBox->setText("");
+            ui->lBox->setText("");
+            ui->rpLabel->setText("<img src=\":user.png\" />");
             ui->loginLabel->setText("Registration Successful! You can now login.");
             ui->winStack->setCurrentIndex(0);
         }
@@ -217,12 +238,21 @@ void LoginSystem::on_editButton_clicked()
 
 void LoginSystem::on_delButton_clicked()
 {
+    QString to = this->picDir+"/"+this->username;
+
+    if (QFile::exists(to))
+    {
+        QFile::remove(to);
+    }
+
     QSqlQuery dQuery(db.db);
     dQuery.prepare("DELETE FROM sys_users WHERE username = (:un)");
     dQuery.bindValue(":un", this->username);
 
     if(dQuery.exec())
     {
+        ui->usernameBox->setText("");
+        ui->passwordBox->setText("");
         ui->loginLabel->setText("Account deleted!");
         ui->winStack->setCurrentIndex(0);
     }
@@ -305,6 +335,19 @@ void LoginSystem::on_editedButton_clicked()
     }
     else
     {
+        if (this->picName != "")
+        {
+            QString to = this->picDir+"/"+ui->uBox_2->text();
+
+            if (QFile::exists(to))
+            {
+                QFile::remove(to);
+            }
+
+            QFile::copy(this->picName, to);
+            this->picName = "";
+        }
+
         ui->regLabel_2->setText("");
         QSqlQuery iQuery(db.db);
         iQuery.prepare("UPDATE sys_users SET username=(:un), passwd=(:pw), fname=(:fn), mname=(:mn), lname=(:ln), email=(:em) WHERE username=(:uno)");
@@ -326,8 +369,22 @@ void LoginSystem::on_editedButton_clicked()
 
 void LoginSystem::on_winStack_currentChanged(int arg1)
 {
+
+    if(arg1 == 3 && this->loggedIn)
+    {
+        if(QFile::exists(this->picDir+"/"+this->username))
+        {
+            ui->rpLabel_2->setText("<img src=\"file:///"+this->picDir+"/"+this->username+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
+        }
+    }
+
     if(arg1 == 2 && this->loggedIn)
     {
+        if(QFile::exists(this->picDir+"/"+this->username))
+        {
+            ui->loggedPic->setText("<img src=\"file:///"+this->picDir+"/"+this->username+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
+        }
+
         QSqlQuery fetcher;
         fetcher.prepare("SELECT * FROM sys_users WHERE username = (:un)");
         fetcher.bindValue(":un", this->username);
@@ -353,4 +410,17 @@ void LoginSystem::on_winStack_currentChanged(int arg1)
         ui->rankLabel->setText(rank);
         ui->emailLabel->setText(email);
     }
+}
+
+void LoginSystem::on_uplButton_clicked()
+{
+    this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png *.jpg *.bmp)"));
+    ui->rpLabel->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
+
+}
+
+void LoginSystem::on_uplButton_2_clicked()
+{
+    this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png *.jpg *.bmp)"));
+    ui->rpLabel_2->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
 }

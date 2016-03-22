@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core sql gui
+QT       += core sql gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,3 +23,6 @@ FORMS    += loginsystem.ui
 
 DISTFILES += \
     db.s3db.sql
+
+RESOURCES += \
+    elements.qrc
