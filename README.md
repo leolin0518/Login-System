@@ -10,6 +10,8 @@ This app currently has the following features:
 
 - Profile System
 
+- Avatar System
+
 - Edit Profile/Password
 
 - Delete Own Account
@@ -19,9 +21,7 @@ This app currently has the following features:
 
 ## **Screenshots** ##
 
-![20-01-35.png](https://bitbucket.org/repo/azAkE8/images/2997772246-20-01-35.png)
 
-![20-03-16.png](https://bitbucket.org/repo/azAkE8/images/3407974867-20-03-16.png)
 
 
 While this app is driven by an SQLite database, it is targeted at a unified database server.
