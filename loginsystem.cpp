@@ -3,6 +3,7 @@
 #include "qdb.h"
 #include <QSqlRecord>
 #include <QFileDialog>
+#include <QMessageBox>
 
 QDBLite::DB db;
 
@@ -13,6 +14,7 @@ LoginSystem::LoginSystem(QWidget *parent) :
     ui->setupUi(this);
     db.dbstate = db.Connect(QCoreApplication::applicationDirPath()+"/../../LogSys/db.s3db");
     ui->winStack->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 
     ui->passwordBox->setEchoMode(QLineEdit::Password);
     ui->passwordBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
@@ -47,6 +49,8 @@ void LoginSystem::on_loginButton_clicked()
 
 bool LoginSystem::Login(QString u, QString p)
 {
+    ui->adminButton->setVisible(false);
+
     bool exists = false;
 
     QSqlQuery checkQuery(db.db);
@@ -75,10 +79,15 @@ void LoginSystem::on_regButton_clicked()
 
 void LoginSystem::on_logoutButton_clicked()
 {
-    this->loggedIn = false;
-    ui->passwordBox->setText("");
-    ui->loginLabel->setText("You signed out!");
-    ui->winStack->setCurrentIndex(0);
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                       "Login System", "Are you sure you want to logout?",
+                                       QMessageBox::Yes|QMessageBox::No).exec())
+    {
+        this->loggedIn = false;
+        ui->passwordBox->setText("");
+        ui->loginLabel->setText("You signed out!");
+        ui->winStack->setCurrentIndex(0);
+    }
 }
 
 void LoginSystem::on_completeRegButton_clicked()
@@ -238,23 +247,28 @@ void LoginSystem::on_editButton_clicked()
 
 void LoginSystem::on_delButton_clicked()
 {
-    QString to = this->picDir+"/"+this->username;
-
-    if (QFile::exists(to))
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                       "Login System", "Are you sure you want to delete your account?",
+                                       QMessageBox::Yes|QMessageBox::No).exec())
     {
-        QFile::remove(to);
-    }
+        QString to = this->picDir+"/"+this->username;
 
-    QSqlQuery dQuery(db.db);
-    dQuery.prepare("DELETE FROM sys_users WHERE username = (:un)");
-    dQuery.bindValue(":un", this->username);
+        if (QFile::exists(to))
+        {
+            QFile::remove(to);
+        }
 
-    if(dQuery.exec())
-    {
-        ui->usernameBox->setText("");
-        ui->passwordBox->setText("");
-        ui->loginLabel->setText("Account deleted!");
-        ui->winStack->setCurrentIndex(0);
+        QSqlQuery dQuery(db.db);
+        dQuery.prepare("DELETE FROM sys_users WHERE username = (:un)");
+        dQuery.bindValue(":un", this->username);
+
+        if(dQuery.exec())
+        {
+            ui->usernameBox->setText("");
+            ui->passwordBox->setText("");
+            ui->loginLabel->setText("Account deleted!");
+            ui->winStack->setCurrentIndex(0);
+        }
     }
 }
 
@@ -396,7 +410,7 @@ void LoginSystem::on_winStack_currentChanged(int arg1)
         int idRank = fetcher.record().indexOf("rank");
         int idEmail = fetcher.record().indexOf("email");
 
-        QString fullname, rank, email;
+        QString fullname, email, rank;
 
         while (fetcher.next())
         {
@@ -406,9 +420,18 @@ void LoginSystem::on_winStack_currentChanged(int arg1)
             rank = fetcher.value(idRank).toString();
             email = fetcher.value(idEmail).toString();
         }
+        if(rank == "-1")
+        {
+            ui->adminButton->setVisible(true);
+        }
         ui->nameLabel->setText(fullname);
         ui->rankLabel->setText(rank);
         ui->emailLabel->setText(email);
+    }
+
+    if(arg1 == 4 && this->loggedIn)
+    {
+        ui->stackedWidget->setCurrentIndex(0);
     }
 }
 
@@ -423,4 +446,101 @@ void LoginSystem::on_uplButton_2_clicked()
 {
     this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png *.jpg *.bmp)"));
     ui->rpLabel_2->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
+}
+
+void LoginSystem::on_adminButton_clicked()
+{
+    ui->winStack->setCurrentIndex(4);
+}
+
+void LoginSystem::on_pageButton_clicked()
+{
+    ui->winStack->setCurrentIndex(2);
+}
+
+void LoginSystem::on_editedButton_2_clicked()
+{
+    if(this->tblMdl->submitAll())
+    {
+        this->tblMdl->database().commit();
+        ui->adminLabel->setText("Saved to database!");
+    }
+    else
+    {
+        this->tblMdl->database().rollback();
+    }
+}
+
+void LoginSystem::on_backButton_5_clicked()
+{
+    this->tblMdl->revertAll();
+    this->tblMdl->database().rollback();
+}
+
+void LoginSystem::on_userBrowse_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void LoginSystem::on_delUButton_clicked()
+{
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                           "Login System", "Are you sure you want to erase all accounts?",
+                                           QMessageBox::Yes|QMessageBox::No).exec())
+    {
+        QSqlQuery dQuery(db.db);
+        dQuery.prepare("DELETE FROM sys_users WHERE rank != 0 AND rank != -1");
+
+        if(dQuery.exec())
+        {
+            ui->adminLabel->setText("Query executed!");
+        }
+    }
+}
+
+void LoginSystem::on_stackedWidget_currentChanged(int arg1)
+{
+    if(arg1 == 0 && this->loggedIn)
+    {
+        ui->headLabel->setText("USERS");
+        this->tblMdl = new QSqlTableModel;
+        this->tblMdl->setTable("sys_users");
+        this->tblMdl->setFilter("rank != -1 AND rank != 0");
+        this->tblMdl->select();
+        ui->tableView->setModel(this->tblMdl);
+        this->tblMdl->database().transaction();
+    }
+
+    if(arg1 == 1 && this->loggedIn)
+    {
+        ui->headLabel->setText("ADMINS");
+        this->tblMdl = new QSqlTableModel;
+        this->tblMdl->setTable("sys_users");
+        this->tblMdl->setFilter("rank == -1 OR rank == 0");
+        this->tblMdl->select();
+        ui->tableView_2->setModel(this->tblMdl);
+        this->tblMdl->database().transaction();
+    }
+}
+
+void LoginSystem::on_adminBrowse_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void LoginSystem::on_delAButton_clicked()
+{
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                           "Login System", "Are you sure you want to erase all administrators?"\
+                                           "\n(This won't erase regular users and you)",
+                                           QMessageBox::Yes|QMessageBox::No).exec())
+    {
+        QSqlQuery dQuery(db.db);
+        dQuery.prepare("DELETE FROM sys_users WHERE rank != 1 AND username != \"" + this->username + "\"");
+
+        if(dQuery.exec())
+        {
+            ui->adminLabel->setText("Query executed!");
+        }
+    }
 }

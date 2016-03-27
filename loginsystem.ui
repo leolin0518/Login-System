@@ -161,7 +161,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="Login">
       <widget class="QFrame" name="frame_2">
@@ -753,7 +753,7 @@ font-family: 'Droid Sans';</string>
        <widget class="QLineEdit" name="uBox">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>160</y>
           <width>201</width>
           <height>41</height>
@@ -962,7 +962,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="pBox">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>220</y>
           <width>201</width>
           <height>41</height>
@@ -1196,7 +1196,7 @@ Color: #fefefe;</string>
        <widget class="QLineEdit" name="eBox">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>280</y>
           <width>201</width>
           <height>41</height>
@@ -1411,7 +1411,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="fBox">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>160</y>
           <width>201</width>
           <height>41</height>
@@ -1626,7 +1626,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="mBox">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>220</y>
           <width>201</width>
           <height>41</height>
@@ -1841,7 +1841,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="lBox">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>280</y>
           <width>201</width>
           <height>41</height>
@@ -2091,7 +2091,7 @@ Color: #fefefe;</string>
        <widget class="QLabel" name="rpLabel">
         <property name="geometry">
          <rect>
-          <x>296</x>
+          <x>316</x>
           <y>148</y>
           <width>128</width>
           <height>128</height>
@@ -2107,7 +2107,7 @@ Color: #fefefe;</string>
        <widget class="QPushButton" name="uplButton">
         <property name="geometry">
          <rect>
-          <x>278</x>
+          <x>298</x>
           <y>294</y>
           <width>171</width>
           <height>21</height>
@@ -2174,7 +2174,7 @@ font-family: 'Droid Sans';</string>
         <property name="geometry">
          <rect>
           <x>570</x>
-          <y>130</y>
+          <y>150</y>
           <width>151</width>
           <height>21</height>
          </rect>
@@ -2259,7 +2259,7 @@ font-weight: bold;</string>
         <property name="geometry">
          <rect>
           <x>570</x>
-          <y>160</y>
+          <y>180</y>
           <width>151</width>
           <height>21</height>
          </rect>
@@ -2278,7 +2278,7 @@ Color: #fefefe;</string>
         <property name="geometry">
          <rect>
           <x>570</x>
-          <y>190</y>
+          <y>212</y>
           <width>151</width>
           <height>21</height>
          </rect>
@@ -2361,6 +2361,25 @@ font-weight: bold;</string>
          </property>
         </widget>
        </widget>
+       <widget class="QPushButton" name="adminButton">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>118</y>
+          <width>151</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #339;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>ADMIN PANEL</string>
+        </property>
+       </widget>
        <zorder>frame_6</zorder>
        <zorder>loggedUserHeader</zorder>
        <zorder>logoutButton</zorder>
@@ -2372,6 +2391,7 @@ font-weight: bold;</string>
        <zorder>delButton</zorder>
        <zorder>label_6</zorder>
        <zorder>emailLabel</zorder>
+       <zorder>adminButton</zorder>
       </widget>
      </widget>
      <widget class="QWidget" name="page_3">
@@ -2422,7 +2442,7 @@ font-family: 'Droid Sans';</string>
        <widget class="QLineEdit" name="uBox_2">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>160</y>
           <width>201</width>
           <height>41</height>
@@ -2631,7 +2651,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="pBox_2">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>220</y>
           <width>201</width>
           <height>41</height>
@@ -2865,7 +2885,7 @@ Color: #fefefe;</string>
        <widget class="QLineEdit" name="eBox_2">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>70</x>
           <y>280</y>
           <width>201</width>
           <height>41</height>
@@ -3080,7 +3100,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="fBox_2">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>160</y>
           <width>201</width>
           <height>41</height>
@@ -3295,7 +3315,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="mBox_2">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>220</y>
           <width>201</width>
           <height>41</height>
@@ -3510,7 +3530,7 @@ color: #fefefe;</string>
        <widget class="QLineEdit" name="lBox_2">
         <property name="geometry">
          <rect>
-          <x>470</x>
+          <x>490</x>
           <y>280</y>
           <width>201</width>
           <height>41</height>
@@ -3760,7 +3780,7 @@ Color: #fefefe;</string>
        <widget class="QPushButton" name="uplButton_2">
         <property name="geometry">
          <rect>
-          <x>274</x>
+          <x>294</x>
           <y>292</y>
           <width>171</width>
           <height>21</height>
@@ -3779,7 +3799,7 @@ Color: #fefefe;</string>
        <widget class="QLabel" name="rpLabel_2">
         <property name="geometry">
          <rect>
-          <x>292</x>
+          <x>312</x>
           <y>146</y>
           <width>128</width>
           <height>128</height>
@@ -3804,6 +3824,293 @@ Color: #fefefe;</string>
        <zorder>editedButton</zorder>
        <zorder>uplButton_2</zorder>
        <zorder>rpLabel_2</zorder>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_4">
+      <widget class="QFrame" name="frame_7">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>751</width>
+         <height>451</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: #101010;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>234</x>
+          <y>20</y>
+          <width>291</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Droid Sans</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">text-align: center;
+color: #393;
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';</string>
+        </property>
+        <property name="text">
+         <string>Admin Panel</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editedButton_2">
+        <property name="geometry">
+         <rect>
+          <x>558</x>
+          <y>410</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #393;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>SAVE CHANGES</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="delUButton">
+        <property name="geometry">
+         <rect>
+          <x>22</x>
+          <y>410</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #a11;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>DELETE ALL USERS</string>
+        </property>
+       </widget>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="geometry">
+         <rect>
+          <x>182</x>
+          <y>122</y>
+          <width>535</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_5">
+         <widget class="QFrame" name="frame_8">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>535</width>
+            <height>303</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #fefefe;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QTableView" name="tableView">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>535</width>
+             <height>305</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="page_6">
+         <widget class="QFrame" name="frame_9">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>535</width>
+            <height>303</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #fefefe;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QTableView" name="tableView_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-2</y>
+             <width>535</width>
+             <height>305</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="userBrowse">
+        <property name="geometry">
+         <rect>
+          <x>18</x>
+          <y>166</y>
+          <width>155</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 0;
+Background: #393;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>ALL USERS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="backButton_5">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>410</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #339;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>ROLLBACK ALL CHANGES</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pageButton">
+        <property name="geometry">
+         <rect>
+          <x>18</x>
+          <y>246</y>
+          <width>155</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 0;
+Background: #393;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>GOTO MY PAGE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="adminBrowse">
+        <property name="geometry">
+         <rect>
+          <x>18</x>
+          <y>206</y>
+          <width>155</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 0;
+Background: #393;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>ALL ADMINS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="delAButton">
+        <property name="geometry">
+         <rect>
+          <x>202</x>
+          <y>410</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">Padding: 1px;
+Border-radius: 5px;
+Background: #a11;
+Color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>DELETE ALL ADMINS</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="adminLabel">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>386</y>
+          <width>649</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string>There are no auto backups! Be sure of any alterations you make.</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="headLabel">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>100</y>
+          <width>479</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: #fefefe;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
